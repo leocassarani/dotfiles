@@ -1,0 +1,22 @@
+[user]
+	name = Leo Cassarani
+	email = leo.cassarani@me.com
+[alias]
+	s = status
+  ci = commit
+	co = checkout
+  di = diff
+  dc = diff --cached
+  amend = commit --amend
+  aa = add --all
+  l = log --graph --abbrev-commit --date=relative
+  pom = push origin master
+  b = branch
+[core]
+	editor = vim -f
+	quotepath = false
+	autocrlf = input
+[color]
+	ui = auto
+[format]
+  pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
