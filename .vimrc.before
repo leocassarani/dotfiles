@@ -1,0 +1,5 @@
+" Make VIM load RVM configuration etc
+set shell=/bin/sh
+
+" Make , the leader
+let mapleader = ","
