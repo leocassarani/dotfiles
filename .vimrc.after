@@ -39,8 +39,8 @@ function! RunTests(filename)
   if match(a:filename, '\.feature$') != -1
     exec ":!bundle exec cucumber " . a:filename
   else
-    if filereadable("script/spec")
-      exec ":!script/spec " . a:filename
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
     else
       if has('gui_running')
         exec ":!bundle exec rspec --no-colour " . a:filename
@@ -80,7 +80,10 @@ endfunction
 
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
+map <leader>a :call RunTests('spec')<cr>
+
+map <leader>c :!script/cucumber<cr>
+map <leader>C :!script/cucumber %<cr>
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -102,20 +105,39 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 " RABL files are just plain Ruby files
 au BufNewFile,BufRead *.rabl set filetype=ruby
 
-" Make ; do the same thing as :
-nnoremap ; :
+" Hamlc files are just Haml files
+au BufNewFile,BufRead *.hamlc set filetype=haml
+au BufNewFile,BufRead *.hamlc.erb set filetype=haml
+"
+" Processing files can be treated as Java
+au BufNewFile,BufRead *.pde set filetype=java
 
 " List files from top to bottom in CtrlP
 let g:ctrlp_match_window_reversed = 0
 
 " Set the maximum height of the match window:
-let g:ctrlp_max_height = 25
+let g:ctrlp_max_height = 30
 
 " CtrlP shouldn't manage the current directory
 let g:ctrlp_working_path_mode = 0
 
 " Exclude version control directories:
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store
+
+" Exclude tmp/ directories
+set wildignore+=*/tmp
 
 " Set statusline to something sensible
 set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%y%h%m%r%=%c,%l/%L\ %P
+
+" Map <leader>w to Ctrl-w w (next window)
+map <leader>w <C-w>w
+
+" Map <leader>= to Ctrl-w = (resize windows)
+map <leader>= <C-w>=
+
+" <leader>e edits a file in the current path
+map <leader>e :edit %%
+
+" <leader>v views a file in the current path
+map <leader>v :view %%
