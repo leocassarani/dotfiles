@@ -95,9 +95,12 @@ function! AlternateForCurrentFile()
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
+  let in_lib = match(current_file, '^lib/') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
+    elseif in_lib
+      let new_file = substitute(new_file, '^lib/', '', '')
     end
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     let new_file = 'spec/' . new_file
@@ -106,6 +109,8 @@ function! AlternateForCurrentFile()
     let new_file = substitute(new_file, '^spec/', '', '')
     if in_app
       let new_file = 'app/' . new_file
+    else
+      let new_file = 'lib/' . new_file
     end
   endif
   return new_file
@@ -118,10 +123,6 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 function! RunTests(filename)
     " Write the file and run tests for the given filename
     :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     if match(a:filename, '\.feature$') != -1
@@ -167,8 +168,8 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+map <leader>c :!script/features<cr>
+map <leader>w :!script/features --tags @wip<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Strip trailing whitespace when saving current buffer
@@ -204,7 +205,7 @@ au BufNewFile,BufRead *.pde set filetype=java
 set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%y%h%m%r%=%c,%l/%L\ %P
 
 " Map <leader>w to Ctrl-w w (next window)
-map <leader>w <C-w>w
+" map <leader>w <C-w>w
 
 " Map <leader>= to Ctrl-w = (resize windows)
 map <leader>= <C-w>=
