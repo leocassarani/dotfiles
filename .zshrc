@@ -32,11 +32,14 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
 
 # This loads RVM into a shell session.
-[[ -s "/Users/leo/.rvm/scripts/rvm" ]] && source "/Users/leo/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Misc aliases
 alias ll="ls -la"
 alias sr="screen -r"
+
+# Load the script containing my aliases for SSH'ing into various servers
+[[ -s "$HOME/.ssh/aliases" ]] && source "$HOME/.ssh/aliases"
 
 # Ruby/Railsy aliases
 alias migrate="rake db:migrate && rake db:test:prepare"
