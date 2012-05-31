@@ -5,6 +5,7 @@
   s = status
   ci = commit
   co = checkout
+  continue = rebase --continue
   di = diff
   dc = diff --cached
   amend = commit --amend
