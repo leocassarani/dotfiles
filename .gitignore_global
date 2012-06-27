@@ -1,0 +1,8 @@
+# Mac OS X
+.DS_Store
+
+# RVM
+.rvmrc
+
+# Rubinius
+.rbx
