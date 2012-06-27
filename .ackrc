@@ -1,0 +1,6 @@
+--type-add
+js=.json,.coffee
+--type-add
+css=.sass,.scss
+--type-add
+html=.haml,.jst,.eco
