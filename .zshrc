@@ -24,9 +24,12 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails3 git ruby brew bundler cap gem osx rake)
+plugins=(rails3 git ruby bundler gem osx rake rvm)
 
 source $ZSH/oh-my-zsh.sh
+
+# Disable autocorrect
+unsetopt correct_all
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
