@@ -18,7 +18,7 @@
   editor = vim -f
   quotepath = false
   autocrlf = input
-  excludesfile = /Users/leo/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [color]
   ui = auto
 [format]
