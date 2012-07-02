@@ -228,12 +228,13 @@ function! AlternateForCurrentFile()
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
-  "let in_lib = match(current_file, '^lib/') != -1
+  let rails_project = isdirectory('app') > 0
+  let in_lib = match(current_file, '^lib/') != -1
   if going_to_spec
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
-    "elseif in_lib
-      "let new_file = substitute(new_file, '^lib/', '', '')
+    elseif in_lib && !rails_project
+      let new_file = substitute(new_file, '^lib/', '', '')
     end
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     let new_file = 'spec/' . new_file
@@ -242,14 +243,15 @@ function! AlternateForCurrentFile()
     let new_file = substitute(new_file, '^spec/', '', '')
     if in_app
       let new_file = 'app/' . new_file
-    "else
-      "let new_file = 'lib/' . new_file
+    elseif rails_project
+      let new_file = new_file
+    else
+      let new_file = 'lib/' . new_file
     end
   endif
   return new_file
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
-
 
 """"""""""""""""""""""""""""""""
 " RUNNING TESTS (GARY BERNHARDT)
