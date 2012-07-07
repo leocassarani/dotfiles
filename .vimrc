@@ -44,7 +44,7 @@ set wildmode=list:longest,full    "
 
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
+set wildignore+=*/vendor/plugins/*,*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
 set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.swp,*~,._*
 
@@ -122,10 +122,11 @@ color jellybeans        " Use the jellybeans colour theme
 " MISC CONFIGURATION
 """"""""""""""""""""
 
-set shell=/bin/zsh      " Make Vim load zsh environment (e.g. RVM)
+set shell=/bin/bash     " Make Vim load bash environment (e.g. RVM)
 set timeoutlen=500      " Only wait 500ms before processing certain commands
 set showcmd             " Display incomplete commands
 set scrolloff=3         " Keep more lines when scrolling off the end of a buffer
+set laststatus=2        " Show the statusline
 
 " Set statusline to something sensible
 " filename [encoding,line-endings][filetype] ... col,row/total-rows Position
@@ -136,14 +137,14 @@ set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%y%h%m%r%=%c,%l/%L\ %P
 """""""""""""""""""""""
 
 " Set up a bunch of <leader> key mappings for common Ruby/Rails directories
-map <leader>gv :ClearCtrlPCache<cr>\|:CtrlP app/views<cr>
-map <leader>gc :ClearCtrlPCache<cr>\|:CtrlP app/controllers<cr>
-map <leader>gm :ClearCtrlPCache<cr>\|:CtrlP app/models<cr>
-map <leader>gh :ClearCtrlPCache<cr>\|:CtrlP app/helpers<cr>
-map <leader>gl :ClearCtrlPCache<cr>\|:CtrlP lib<cr>
-map <leader>gp :ClearCtrlPCache<cr>\|:CtrlP public<cr>
-map <leader>f :ClearCtrlPCache<cr>\|:CtrlP<cr>
-map <leader>F :ClearCtrlPCache<cr>\|:CtrlP %%<cr>
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>f :CtrlP<cr>
+map <leader>F :CtrlP %%<cr>
 
 " List files from top to bottom in CtrlP
 let g:ctrlp_match_window_reversed = 0
