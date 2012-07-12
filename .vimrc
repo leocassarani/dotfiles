@@ -44,7 +44,7 @@ set wildmode=list:longest,full    "
 
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/plugins/*,*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
 set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.swp,*~,._*
 
@@ -307,7 +307,7 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :!script/features<cr>
-map <leader>w :!script/features --tags @wip<cr>
+map <leader>w :!script/features --profile wip<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MOVE WINDOW TO PREVIOUS/NEXT TAB
