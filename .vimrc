@@ -44,7 +44,7 @@ set wildmode=list:longest,full    "
 
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
+set wildignore+=*/vendor/plugins/*,*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
 set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.swp,*~,._*
 
@@ -75,10 +75,15 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown | call 
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.scss set filetype=scss
 
-
 " Remember last location in a file, unless it's a git commit message
 au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g`\"" | endif
+
+""""""""""""""""""""""""""""""""""""""""
+" FILETYPE-SPECIFIC INDENTATION SETTINGS
+""""""""""""""""""""""""""""""""""""""""
+
+autocmd FileType c setlocal shiftwidth=4 tabstop=4 sts=4
 
 """"""""""
 " MAPPINGS
