@@ -35,6 +35,8 @@ unsetopt correct_all
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
 
 export EDITOR=vi
+
+# Display a full range of colours
 export TERM=xterm-256color
 
 # This loads RVM into a shell session.
