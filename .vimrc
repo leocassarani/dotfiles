@@ -153,6 +153,7 @@ map <leader>gl :CtrlP lib<cr>
 map <leader>gp :CtrlP public<cr>
 map <leader>f :CtrlP<cr>
 map <leader>F :CtrlP %%<cr>
+map <leader>cc :CtrlPClearCache<cr>\|:CtrlP<cr>
 
 " List files from top to bottom in CtrlP
 let g:ctrlp_match_window_reversed = 0
