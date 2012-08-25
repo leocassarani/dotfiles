@@ -124,7 +124,7 @@ set pastetoggle=<F9>
 
 set t_Co=256            " Use all 256 colours
 set background=dark     " Dark terminal background
-color jellybeans        " Use the jellybeans colour theme
+color solarized         " Use the solarized colour theme
 
 """"""""""""""""""""
 " MISC CONFIGURATION
