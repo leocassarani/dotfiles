@@ -360,3 +360,17 @@ function! MoveToNextTab()
   endif
   exe "b".l:cur_buf
 endfunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" TOGGLE BETWEEN RELATIVE AND ABSOLUTE LINE NUMBERS
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
