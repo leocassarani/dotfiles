@@ -6,3 +6,6 @@
 
 # Rubinius
 .rbx
+
+# RSpec
+.rspec
