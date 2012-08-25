@@ -4,3 +4,7 @@ js=.json,.coffee
 css=.sass,.scss
 --type-add
 html=.haml,.jst,.eco
+--type-add
+ruby=Gemfile
+--type-set
+cucumber=.feature
