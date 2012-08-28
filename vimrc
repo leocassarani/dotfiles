@@ -52,8 +52,8 @@ set wildignore+=*.swp,*~,._*
 " WHERE TO PUT BACKUP AND SWAP FILES
 """"""""""""""""""""""""""""""""""""
 
-set backupdir=~/.vim/_backup//
-set directory=~/.vim/_temp//
+set backupdir=~/.vim_backup,/tmp
+set directory=~/.vim_temp,/tmp
 
 """""""""""""""""""""""""""""""""""""""
 " SET FILE TYPES FOR VARIOUS EXTENSIONS
