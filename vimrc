@@ -84,6 +84,7 @@ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= l
 """"""""""""""""""""""""""""""""""""""""
 
 autocmd FileType c setlocal shiftwidth=4 tabstop=4 sts=4
+autocmd FileType haskell setlocal shiftwidth=8 tabstop=8 sts=8
 
 """"""""""
 " MAPPINGS
