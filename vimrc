@@ -113,8 +113,8 @@ cnoremap %% <c-r>=expand('%:h').'/'<cr>
 " <leader>e edits a file in the current path
 map <leader>e :edit %%
 
-" <leader>g opens the Git status window
-map <leader>g :Gstatus<cr>
+" <leader>G opens the Git status window
+map <leader>G :Gstatus<cr>
 
 " Use F9 to toggle between paste and nopaste
 set pastetoggle=<F9>
