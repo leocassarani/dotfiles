@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/mustache"]
 	path = .vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule ".vim/bundle/cocoa.vim"]
+	path = .vim/bundle/cocoa.vim
+	url = git://github.com/msanders/cocoa.vim.git
