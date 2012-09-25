@@ -132,7 +132,7 @@ color solarized         " Use the solarized colour theme
 """"""""""""""""""""
 
 set shell=/bin/bash     " Make Vim load bash environment (e.g. RVM)
-set timeoutlen=500      " Only wait 500ms before processing certain commands
+set timeoutlen=300      " Only wait 500ms before processing certain commands
 set showcmd             " Display incomplete commands
 set scrolloff=3         " Keep more lines when scrolling off the end of a buffer
 set laststatus=2        " Show the statusline
