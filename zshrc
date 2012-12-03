@@ -55,3 +55,4 @@ alias be="bundle exec"
 alias r="rails"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.cabal/bin # Add Cabal binaries to PATH
