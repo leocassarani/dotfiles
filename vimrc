@@ -1,5 +1,6 @@
 let mapleader=","                 " Make , the leader key
 
+filetype off                      " Disable filetype detection before Pathogen is loaded
 call pathogen#infect()            " Load ALL the plugins
 call pathogen#helptags()          " Load the help tags for all plugins
 
@@ -83,8 +84,7 @@ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= l
 " FILETYPE-SPECIFIC INDENTATION SETTINGS
 """"""""""""""""""""""""""""""""""""""""
 
-autocmd FileType c setlocal shiftwidth=4 tabstop=4 sts=4
-autocmd FileType haskell setlocal shiftwidth=8 tabstop=8 sts=8
+autocmd FileType {c,objc,haskell} setlocal shiftwidth=4 tabstop=4 sts=4
 
 """"""""""
 " MAPPINGS
@@ -313,7 +313,7 @@ function! RunNearestTest()
     call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
-map <leader>t :call RunTestFile()<cr>
+autocmd FileType ruby map <buffer> <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :!script/features<cr>
@@ -375,3 +375,9 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+"""""""""
+" HASKELL
+"""""""""
+
+autocmd FileType haskell map <buffer> <leader>t :!ghci %<cr>
