@@ -84,7 +84,7 @@ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= l
 " FILETYPE-SPECIFIC INDENTATION SETTINGS
 """"""""""""""""""""""""""""""""""""""""
 
-autocmd FileType {c,objc,haskell} setlocal shiftwidth=4 tabstop=4 sts=4
+autocmd FileType {c,objc} setlocal shiftwidth=4 tabstop=4 sts=4
 
 """"""""""
 " MAPPINGS
@@ -313,7 +313,7 @@ function! RunNearestTest()
     call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
-autocmd FileType ruby map <buffer> <leader>t :call RunTestFile()<cr>
+map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :!script/features<cr>
