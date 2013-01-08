@@ -56,3 +56,7 @@ alias r="rails"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.cabal/bin # Add Cabal binaries to PATH
+
+# Add the Homebrew-installed version of OpenSSL to my build variables
+LDFLAGS=-L/usr/local/opt/openssl/lib $LDFLAGS
+CPPFLAGS=-I/usr/local/opt/openssl/include $CPPFLAGS
