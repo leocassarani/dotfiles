@@ -24,23 +24,25 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails3 git ruby bundler gem osx rake rvm)
+plugins=(rails3 git ruby bundler gem osx rake rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # Disable autocorrect
 unsetopt correct_all
 
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
-
-export EDITOR=vi
-
 # Display a full range of colours
 export TERM=xterm-256color
 
-# This loads RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Set up default PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
+
+# Add rbenv and Cabal binaries
+export PATH="$HOME/.rbenv/bin:$HOME/.cabal/bin:$PATH"
+
+export EDITOR=vi
+
+eval "$(rbenv init -)"
 
 # Misc aliases
 alias ll="ls -la"
@@ -52,11 +54,15 @@ alias sr="screen -r"
 # Ruby/Railsy aliases
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias be="bundle exec"
-alias r="rails"
+alias r="bundle exec rails"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.cabal/bin # Add Cabal binaries to PATH
+ve() {
+  cmd=$*
+  vagrant ssh -c "cd /vagrant && $cmd"
+}
+
+export VIMCLOJURE_SERVER_JAR="/usr/local/lib/vimclojure/server-2.3.6.jar"
 
 # Add the Homebrew-installed version of OpenSSL to my build variables
-LDFLAGS=-L/usr/local/opt/openssl/lib $LDFLAGS
-CPPFLAGS=-I/usr/local/opt/openssl/include $CPPFLAGS
+LDFLAGS="-L/usr/local/opt/openssl/lib $LDFLAGS"
+CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
