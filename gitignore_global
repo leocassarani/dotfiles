@@ -4,8 +4,17 @@
 # RVM
 .rvmrc
 
+# Rbenv
+.ruby-version
+
+# Bundler
+.bundle
+
 # Rubinius
 .rbx
 
 # RSpec
 .rspec
+
+# the_silver_searcher
+.agignore
