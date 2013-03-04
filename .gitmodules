@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/cocoa.vim"]
 	path = .vim/bundle/cocoa.vim
 	url = git://github.com/msanders/cocoa.vim.git
+[submodule ".vim/bundle/puppet"]
+	path = .vim/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
