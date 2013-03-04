@@ -35,7 +35,7 @@ unsetopt correct_all
 export TERM=xterm-256color
 
 # Set up default PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
 
 # Add rbenv and Cabal binaries
 export PATH="$HOME/.rbenv/bin:$HOME/.cabal/bin:$PATH"
@@ -55,6 +55,7 @@ alias sr="screen -r"
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias be="bundle exec"
 alias r="bundle exec rails"
+alias brake="bundle exec rake"
 
 ve() {
   cmd=$*
