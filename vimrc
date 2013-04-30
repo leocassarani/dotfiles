@@ -39,6 +39,9 @@ set smartcase                     " (Unless they contain a capital letter)
 set wildmenu                      " Sensible, powerful tab completion
 set wildmode=list:longest,full    "
 
+set mouse=a
+set ttymouse=xterm2
+
 """"""""""""""""""""""
 " FILE TYPES TO IGNORE
 """"""""""""""""""""""
