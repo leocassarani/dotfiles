@@ -5,7 +5,9 @@
   s = status
   ci = commit
   co = checkout
+  gogogo = !git aa && git continue
   continue = rebase --continue
+  skip = rebase --skip
   di = diff
   dc = diff --cached
   amend = commit --amend
@@ -30,3 +32,5 @@
   user = leocassarani
 [merge]
   conflictstyle = diff3
+[rerere]
+  enabled = true
