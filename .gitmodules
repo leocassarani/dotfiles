@@ -91,3 +91,9 @@
 [submodule ".vim/bundle/puppet"]
 	path = .vim/bundle/puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git
+[submodule ".vim/bundle/vim-abolish"]
+	path = .vim/bundle/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
