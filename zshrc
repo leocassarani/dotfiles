@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails3 git ruby bundler gem osx rake rbenv)
+plugins=(rails3 git ruby bundler gem rake rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,8 +62,3 @@ ve() {
   vagrant ssh -c "cd /vagrant && $cmd"
 }
 
-export VIMCLOJURE_SERVER_JAR="/usr/local/lib/vimclojure/server-2.3.6.jar"
-
-# Add the Homebrew-installed version of OpenSSL to my build variables
-LDFLAGS="-L/usr/local/opt/openssl/lib $LDFLAGS"
-CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
