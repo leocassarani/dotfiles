@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/vim-snipmate"]
 	path = .vim/bundle/vim-snipmate
 	url = git://github.com/garbas/vim-snipmate.git
-[submodule ".vim/bundle/snipmate-snippets"]
-	path = .vim/bundle/snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -82,9 +79,6 @@
 [submodule ".vim/bundle/mustache"]
 	path = .vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
-[submodule ".vim/bundle/VimClojure"]
-	path = .vim/bundle/VimClojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule ".vim/bundle/cocoa.vim"]
 	path = .vim/bundle/cocoa.vim
 	url = git://github.com/msanders/cocoa.vim.git
