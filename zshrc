@@ -42,23 +42,33 @@ export PATH="$HOME/.rbenv/bin:$HOME/.cabal/bin:$PATH"
 
 export EDITOR=vi
 
-eval "$(rbenv init -)"
-
 # Misc aliases
-alias ll="ls -la"
+alias ll="ls -lha"
 alias sr="screen -r"
-
-# Load the script containing my aliases for SSH'ing into various servers
-[[ -s "$HOME/.ssh/aliases" ]] && source "$HOME/.ssh/aliases"
-
+#
 # Ruby/Railsy aliases
-alias migrate="rake db:migrate && rake db:test:prepare"
+alias migrate="rake db:migrate"
 alias be="bundle exec"
-alias r="bundle exec rails"
 alias brake="bundle exec rake"
 
-ve() {
-  cmd=$*
-  vagrant ssh -c "cd /vagrant && $cmd"
+export LC_ALL=$LANG
+
+# Tmux
+alias tma='tmux attach -d -t'
+alias tnew=new-tmux-from-dir-name
+
+function new-tmux-from-dir-name {
+  if [ -z "$1" ]; then
+    tmux new-session -As $(basename $PWD)
+  else
+    cd $1 && new-tmux-from-dir-name
+  fi
+}
+
+# Golang
+alias cdgo=cd-to-golang-directory
+
+function cd-to-golang-directory {
+  cd $GOPATH/src/github.com/*/$1
 }
 
