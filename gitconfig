@@ -16,9 +16,12 @@
   r = !git l -30
   l = log --graph --abbrev-commit --date=relative
   pom = push origin master
+  plom = pull origin master
+  plrom = pull --rebase origin master
   pop = stash pop
   b = branch
   standup = log --since yesterday
+  unstage = reset HEAD --
 [core]
   editor = vim -f
   quotepath = false
