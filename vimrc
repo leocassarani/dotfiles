@@ -24,6 +24,7 @@ set expandtab                     " Use spaces instead of tabs
 set smarttab                      " Backspace deletes whole tabs at the beginning of a line
 set sts=2                         " Backspace deletes whole tabs at the end of a line
 set list                          " Show invisible characters
+set nojoinspaces                  " Avoid double spaces when joining lines
 
 set listchars=""                  " Reset listchars
 set listchars=tab:\ \             " Display a tab as "  "
@@ -48,8 +49,9 @@ set ttymouse=xterm2
 
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/plugins/*,*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/tmp/*
-set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store
+set wildignore+=*/vendor/ruby/*,*/vendor/plugins/*,*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/node_modules/*,*/.sass-cache/*,*/tmp/*
+set wildignore+=*/ebin/*,*/dev/*,*/rel/*,*/deps/*
+set wildignore+=*/.git/*,*/.rbx/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/.pew
 set wildignore+=*.swp,*~,._*
 
 """"""""""""""""""""""""""""""""""""
@@ -87,7 +89,8 @@ au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= l
 " FILETYPE-SPECIFIC INDENTATION SETTINGS
 """"""""""""""""""""""""""""""""""""""""
 
-autocmd FileType {c,objc} setlocal shiftwidth=4 tabstop=4 sts=4
+autocmd FileType {c,objc,erlang} setlocal shiftwidth=4 tabstop=4 sts=4
+autocmd FileType {go} setlocal shiftwidth=8 tabstop=8 sts=8 noexpandtab
 
 """"""""""
 " MAPPINGS
@@ -127,7 +130,7 @@ set pastetoggle=<F9>
 """""""""
 
 set t_Co=256            " Use all 256 colours
-set background=dark     " Dark terminal background
+set background=light    " Light terminal background
 color solarized         " Use the solarized colour theme
 
 """"""""""""""""""""
@@ -135,7 +138,7 @@ color solarized         " Use the solarized colour theme
 """"""""""""""""""""
 
 set shell=/bin/bash     " Make Vim load bash environment (e.g. RVM)
-set timeoutlen=300      " Only wait 500ms before processing certain commands
+set timeoutlen=200     " Only wait 200ms before processing certain commands
 set showcmd             " Display incomplete commands
 set scrolloff=3         " Keep more lines when scrolling off the end of a buffer
 set laststatus=2        " Show the statusline
@@ -157,7 +160,7 @@ map <leader>gl :CtrlP lib<cr>
 map <leader>gp :CtrlP public<cr>
 map <leader>f :CtrlP<cr>
 map <leader>F :CtrlP %%<cr>
-map <leader>cc :CtrlPClearCache<cr>\|:CtrlP<cr>
+map <leader>C :CtrlPClearCache<cr>\|:CtrlP<cr>
 
 " List files from top to bottom in CtrlP
 let g:ctrlp_match_window_reversed = 0
@@ -306,6 +309,7 @@ function! RunTestFile(...)
     if in_test_file
         call SetTestFile()
     elseif !exists("t:grb_test_file")
+        call RunTests('')
         return
     end
     call RunTests(t:grb_test_file . command_suffix)
@@ -384,3 +388,21 @@ nnoremap <C-n> :call NumberToggle()<cr>
 """""""""
 
 autocmd FileType haskell map <buffer> <leader>t :!ghci %<cr>
+
+"""""""
+" RUBBY
+"""""""
+
+ab pry require 'pry'; binding.pry
+
+""""""""
+" GOLANG
+""""""""
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'passive_filetypes': ['go'] }
+
+let g:go_fmt_autosave = 0
+let g:go_fmt_command = "goimports"
+
+map <leader>gf :GoFmt<cr>
