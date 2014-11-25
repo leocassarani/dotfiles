@@ -94,3 +94,9 @@
 [submodule ".vim/bundle/vim-snippets"]
 	path = .vim/bundle/vim-snippets
 	url = git://github.com/honza/vim-snippets.git
+[submodule ".vim/bundle/golang"]
+	path = .vim/bundle/golang
+	url = git@github.com:jnwhiteh/vim-golang.git
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
