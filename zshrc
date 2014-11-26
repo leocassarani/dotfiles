@@ -24,7 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails3 git ruby bundler gem rake rbenv)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,11 +34,9 @@ unsetopt correct_all
 # Display a full range of colours
 export TERM=xterm-256color
 
-# Set up default PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/texbin
-
-# Add rbenv and Cabal binaries
-export PATH="$HOME/.rbenv/bin:$HOME/.cabal/bin:$PATH"
+export GOROOT=$HOME/code/go
+export GOPATH=$HOME/code/golang
+export PATH=$GOPATH/bin:$GOROOT/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 export EDITOR=vi
 
@@ -71,4 +69,3 @@ alias cdgo=cd-to-golang-directory
 function cd-to-golang-directory {
   cd $GOPATH/src/github.com/*/$1
 }
-
