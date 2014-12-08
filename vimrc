@@ -404,5 +404,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:go_fmt_autosave = 0
 let g:go_fmt_command = "goimports"
+let g:go_disable_autoinstall = 1
 
 map <leader>gf :GoFmt<cr>
