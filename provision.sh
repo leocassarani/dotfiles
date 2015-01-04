@@ -78,7 +78,7 @@ function install_dev_tools() {
 }
 
 function install_the_silver_searcher() {
-  sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+  sudo apt-get install -y automake make pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
   AGDIR=/tmp/the_silver_searcher
 
