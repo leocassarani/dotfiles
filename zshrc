@@ -27,6 +27,7 @@ export TERM=xterm-256color
 
 export GOROOT=$HOME/code/go
 export GOPATH=$HOME/code/golang
+export CDPATH=.:$HOME:$HOME/code
 export PATH=$GOPATH/bin:$GOROOT/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 export EDITOR=vi
