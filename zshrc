@@ -35,7 +35,8 @@ export EDITOR=vi
 # Misc aliases
 alias ll="ls -lha"
 alias sr="screen -r"
-#
+alias vg=vagrant
+
 # Ruby/Railsy aliases
 alias migrate="rake db:migrate"
 alias be="bundle exec"
