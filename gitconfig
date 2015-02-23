@@ -15,6 +15,7 @@
   head = !git l -1
   r = !git l -30
   l = log --graph --abbrev-commit --date=relative
+  master = checkout master
   pom = push origin master
   plom = pull origin master
   plrom = pull --rebase origin master
