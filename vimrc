@@ -286,8 +286,10 @@ function! RunTests(filename)
             exec ":!script/test " . a:filename
         elseif filereadable("Gemfile")
             exec ":!bundle exec rspec --color " . a:filename
+        elseif filereadable("Makefile")
+            exec "make test"
         else
-            exec ":!rspec --color " . a:filename
+            exec "go test -v ./..."
         end
     end
 endfunction
@@ -323,8 +325,6 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
-map <leader>c :!script/features<cr>
-map <leader>w :!script/features --profile wip<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MOVE WINDOW TO PREVIOUS/NEXT TAB
@@ -402,8 +402,13 @@ ab pry require 'pry'; binding.pry
 let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'passive_filetypes': ['go'] }
 
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_disable_autoinstall = 1
+
+let g:go_highlight_structs = 1
+
+au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
 
 map <leader>gf :GoFmt<cr>
