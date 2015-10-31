@@ -129,9 +129,10 @@ set pastetoggle=<F9>
 " COLOURS
 """""""""
 
-set t_Co=256            " Use all 256 colours
-set background=light    " Light terminal background
-color solarized         " Use the solarized colour theme
+set t_Co=256             " Use all 256 colours
+set background=dark      " Dark terminal background
+let base16colorspace=256 " Access colours present in 256 colorspace
+color base16-tomorrow    " tomorrow-dark colour theme
 
 """"""""""""""""""""
 " MISC CONFIGURATION
