@@ -22,9 +22,6 @@ source $ZSH/oh-my-zsh.sh
 # Disable autocorrect
 unsetopt correct_all
 
-# Display a full range of colours
-export TERM=xterm-256color
-
 export GOROOT=$HOME/code/go
 export GOPATH=$HOME/code/golang
 export CDPATH=.:$HOME:$HOME/code
