@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
+
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Stop iTunes from responding to the keyboard media keys
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+##########
+# Finder #
+##########
+
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowPathBar -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+##########
+# Safari #
+##########
+
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
