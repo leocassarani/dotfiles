@@ -6,11 +6,11 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
 " basics
 call minpac#add('tpope/vim-sensible')
+call minpac#add('danielwe/base16-vim')
 
 " languages
 call minpac#add('fatih/vim-go')
 call minpac#add('mxw/vim-jsx')
-call minpac#add('idris-hackers/idris-vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('rust-lang/rust.vim')
 call minpac#add('tpope/vim-markdown')
