@@ -1,20 +1,8 @@
 # Mac OS X
 .DS_Store
 
-# RVM
-.rvmrc
-
-# Rbenv
-.ruby-version
-
 # Bundler
 .bundle
 
-# Rubinius
-.rbx
-
-# RSpec
-.rspec
-
-# the_silver_searcher
-.agignore
+# https://github.com/volatiletech/sqlboiler
+sqlboiler.json
